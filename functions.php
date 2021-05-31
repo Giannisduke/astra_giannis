@@ -27,6 +27,10 @@ function child_enqueue_styles() {
 	//με αυτό φορτώνει το fonts.css
 	wp_register_style( 'giannis_fonts_css', get_stylesheet_directory_uri() . '/css/fonts.css');
 	wp_enqueue_style( 'giannis_fonts_css' );
+
+	//με αυτό φορτώνει το https://github.com/scroll-out/scroll-out.github.io
+	wp_register_script( 'scroll-out', get_stylesheet_directory_uri() . '/js/scroll-out.min.js' , '', '', true );
+	wp_enqueue_script( 'scroll-out' );
 }
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
