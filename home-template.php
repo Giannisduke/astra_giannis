@@ -7,11 +7,11 @@ get_header(); ?>
 
 <!-- Section Hero -->
 <section class="hero">
-  <div class="container h-100 test">
+  <div class="container-fluid h-100 test">
     <div class="row h-100 justify-content-center align-items-center">
       <div class="col-12 text-center test">
-        <h1>Όνομα Επίθετο</h1>
-        <p>Web Developer</p>
+        <h1><?php the_field('hero_title'); ?></h1>
+        <p><?php the_field('hero_subtitle'); ?></p>
       </div>
     </div>
   </div>
