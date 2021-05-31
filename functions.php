@@ -20,9 +20,18 @@ function child_enqueue_styles() {
 
 	wp_enqueue_style( 'astra-giannis-child-theme-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_ASTRA_GIANNIS_CHILD_THEME_VERSION, 'all' );
 
-	//με αυτό φορτώνει το custom.css
-	wp_register_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css');
-  wp_enqueue_style( 'bootstrap' );
+
+	if ( is_page_template( 'home-template.php' ) ) {
+	    // ΑΝ το page Template ειναι home-template.php
+
+				//με αυτό φορτώνει το bootstrap 4 css
+				wp_register_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css');
+				wp_enqueue_style( 'bootstrap' );
+
+				//με αυτό φορτώνει το bootstrap 4 js
+				wp_register_script( 'bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.bundle.js' , '', '', true );
+				wp_enqueue_script( 'bootstrap_js' );
+	}
 
 
 	//με αυτό φορτώνει το custom.css
@@ -33,8 +42,7 @@ function child_enqueue_styles() {
 	wp_register_style( 'giannis_fonts_css', get_stylesheet_directory_uri() . '/css/fonts.css');
 	wp_enqueue_style( 'giannis_fonts_css' );
 
-	wp_register_script( 'bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.bundle.js' , '', '', true );
-	wp_enqueue_script( 'bootstrap_js' );
+
 
 	if (is_front_page()){
 			//με αυτό φορτώνει το https://github.com/scroll-out/scroll-out.github.io
